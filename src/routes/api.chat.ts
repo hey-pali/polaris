@@ -70,7 +70,10 @@ export const Route = createFileRoute('/api/chat')({
 
           const adapterConfig = {
             anthropic: () =>
-              anthropicText((model || 'claude-haiku-4-5') as any),
+              anthropicText((model || 'claude-haiku-4-5') as any, {
+                maxRetries: 5,
+                timeout: 30000,
+              }),
             openai: () => openaiText((model || 'gpt-4o') as any),
             gemini: () => geminiText((model || 'gemini-2.5-flash') as any),
             ollama: () => ollamaText((model || 'mistral:7b') as any),
