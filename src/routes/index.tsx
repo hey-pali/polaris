@@ -170,9 +170,33 @@ function EmptyState({ onPrompt }: { onPrompt: (text: string) => void }) {
   )
 }
 
+function ErrorBanner({ onRetry }: { onRetry: () => void }) {
+  return (
+    <div className="max-w-2xl mx-auto w-full px-3 sm:px-4 pt-3 polaris-rise">
+      <div
+        className="flex items-center justify-between gap-3 rounded-xl border px-4 py-2.5 text-sm"
+        style={{
+          borderColor: 'var(--polaris-line)',
+          background: 'var(--polaris-panel)',
+          color: 'var(--polaris-ink-dim)',
+        }}
+      >
+        <span>Tive um probleminha de conexão agora.</span>
+        <button
+          onClick={onRetry}
+          className="text-xs font-medium underline flex-shrink-0"
+          style={{ color: 'var(--polaris-gold)' }}
+        >
+          Tentar de novo
+        </button>
+      </div>
+    </div>
+  )
+}
+
 function Home() {
   const [input, setInput] = useState('')
-  const { messages, sendMessage, isLoading, stop } = useAIChat()
+  const { messages, sendMessage, isLoading, stop, error, reload } = useAIChat()
 
   const submit = (text: string) => {
     if (text.trim()) {
@@ -201,6 +225,7 @@ function Home() {
           borderColor: 'var(--polaris-line)',
         }}
       >
+        {error && !isLoading && <ErrorBanner onRetry={() => reload()} />}
         <div className="max-w-2xl mx-auto w-full px-3 sm:px-4 py-3">
           {isLoading && (
             <div className="flex items-center justify-center mb-2">
