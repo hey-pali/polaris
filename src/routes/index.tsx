@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { createFileRoute } from '@tanstack/react-router'
-import { ArrowUp, Compass, Square } from 'lucide-react'
+import { ArrowUp, Square } from 'lucide-react'
 import { Streamdown } from 'streamdown'
 
 import { useAIChat } from '@/lib/ai-hook'
@@ -12,12 +12,11 @@ function PolarisAvatar({ size = 'md' }: { size?: 'sm' | 'md' }) {
     <div
       className={`${dimensions} rounded-full flex items-center justify-center flex-shrink-0`}
       style={{
-        background:
-          'radial-gradient(circle at 30% 30%, #f0cd7c, #d9a94a 55%, #8a611f 100%)',
-        boxShadow: '0 0 0 1px rgba(217,169,74,0.35), 0 2px 10px rgba(217,169,74,0.25)',
+        background: '#47586A',
+        boxShadow: '0 0 0 1px rgba(71,88,106,0.35), 0 2px 10px rgba(71,88,106,0.25)',
       }}
     >
-      <Compass className="w-1/2 h-1/2 text-[#241a08]" strokeWidth={2.25} />
+      <img src="/polaris-logo.png" alt="Polaris" className="w-2/3 h-2/3 object-contain" />
     </div>
   )
 }
@@ -26,15 +25,7 @@ function TypingIndicator() {
   return (
     <div className="flex items-end gap-2 px-4 pb-2 polaris-rise">
       <PolarisAvatar size="sm" />
-      <div className="polaris-bubble-in rounded-2xl rounded-bl-sm px-4 py-3 flex items-center gap-1.5">
-        {[0, 1, 2].map((i) => (
-          <span
-            key={i}
-            className="polaris-typing-dot w-1.5 h-1.5 rounded-full bg-[var(--polaris-gold-soft)] inline-block"
-            style={{ animationDelay: `${i * 0.15}s` }}
-          />
-        ))}
-      </div>
+      <div className="polaris-bubble-in rounded-2xl rounded-bl-sm px-4 py-3 flex items-center gap-1.5" />
     </div>
   )
 }
@@ -136,11 +127,11 @@ function EmptyState({ onPrompt }: { onPrompt: (text: string) => void }) {
         <div className="mx-auto mb-5 w-16 h-16">
           <PolarisAvatar size="md" />
         </div>
-        <h2 className="font-display text-2xl font-semibold text-[var(--polaris-ink)] mb-2">
-          Oi, eu sou o Polaris
+        <h2 className="font-display text-2xl font-semibold text-[#47586A] mb-2">
+          Oi, eu sou a Polaris
         </h2>
-        <p className="text-sm text-[var(--polaris-ink-dim)] mb-6">
-          Seu guia dentro da Comunidade Supernova. Manda uma mensagem e eu te
+        <p className="text-sm text-[#47586A]/70 mb-6">
+          Sua guia dentro da Comunidade Supernova. Manda uma mensagem e eu te
           ajudo a encontrar o próximo passo da sua jornada.
         </p>
         <div className="flex flex-col gap-2">
@@ -253,11 +244,11 @@ function Home() {
                 type="text"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                placeholder="Escreva para o Polaris..."
+                placeholder="Escreva para a Polaris..."
                 className="flex-1 rounded-full px-4 py-2.5 text-sm focus:outline-none border"
                 style={{
                   background: 'var(--polaris-bubble-in)',
-                  borderColor: 'var(--polaris-line)',
+                  borderColor: '#FFF8EC',
                   color: 'var(--polaris-ink)',
                 }}
                 disabled={isLoading}
@@ -268,9 +259,8 @@ function Home() {
                 aria-label="Enviar mensagem"
                 className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 disabled:opacity-40 transition-transform active:scale-95"
                 style={{
-                  background:
-                    'linear-gradient(155deg, var(--polaris-gold-soft), var(--polaris-gold))',
-                  color: '#241a08',
+                  background: '#FFF8EC',
+                  color: '#47586A',
                 }}
               >
                 <ArrowUp className="w-5 h-5" strokeWidth={2.5} />

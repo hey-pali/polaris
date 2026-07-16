@@ -18,7 +18,7 @@ export const Route = createRootRoute({
       {
         name: 'description',
         content:
-          'Polaris, o agente-guia da Comunidade Supernova, para acompanhar sua jornada dentro da comunidade.',
+          'Polaris, a agente-guia da Comunidade Supernova, para acompanhar sua jornada dentro da comunidade.',
       },
     ],
     links: [
@@ -33,7 +33,7 @@ export const Route = createRootRoute({
       },
       {
         rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap',
+        href: 'https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap',
       },
     ],
   }),
