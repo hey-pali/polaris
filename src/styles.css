@@ -3,10 +3,10 @@
 @source "../../../node_modules/streamdown/dist/*.js";
 
 :root {
-  --polaris-void: #14110c;
-  --polaris-charcoal: #1c1812;
-  --polaris-panel: #221d16;
-  --polaris-bubble-in: #2a2418;
+  --polaris-void: #fff8ec;
+  --polaris-charcoal: #fff8ec;
+  --polaris-panel: #47586a;
+  --polaris-bubble-in: #47586a;
   --polaris-line: #3a3122;
   --polaris-ink: #f3ead6;
   --polaris-ink-dim: #b9ac8e;
@@ -19,7 +19,7 @@
 body {
   margin: 0;
   font-family:
-    "Manrope",
+    "Sora",
     ui-sans-serif,
     system-ui,
     -apple-system,
@@ -34,7 +34,7 @@ code {
 }
 
 .font-display {
-  font-family: "Fraunces", Georgia, "Times New Roman", serif;
+  font-family: "Sora", ui-sans-serif, system-ui, -apple-system, sans-serif;
 }
 
 /* WhatsApp-style scroll surface with a faint starfield */
@@ -90,23 +90,6 @@ code {
   padding: 0.1em 0.35em;
   border-radius: 0.3em;
   font-size: 0.85em;
-}
-
-@keyframes polaris-typing-dot {
-  0%,
-  60%,
-  100% {
-    transform: translateY(0);
-    opacity: 0.4;
-  }
-  30% {
-    transform: translateY(-3px);
-    opacity: 1;
-  }
-}
-
-.polaris-typing-dot {
-  animation: polaris-typing-dot 1.2s ease-in-out infinite;
 }
 
 @keyframes polaris-rise {
