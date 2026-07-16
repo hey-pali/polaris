@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react'
 import {
   fetchServerSentEvents,
   useChat,
@@ -17,5 +18,21 @@ export const useAIChat = () => {
     connection: fetchServerSentEvents('/api/chat'),
   })
 
-  return useChat(chatOptions)
+  const chat = useChat(chatOptions)
+  const hasAutoRetriedRef = useRef(false)
+
+  // The Anthropic connection occasionally throws a transient "Connection
+  // error" (Netlify AI Gateway flakiness). Retry once automatically before
+  // bothering the member with an error message.
+  useEffect(() => {
+    if (chat.error && !hasAutoRetriedRef.current) {
+      hasAutoRetriedRef.current = true
+      chat.reload()
+    } else if (!chat.error) {
+      hasAutoRetriedRef.current = false
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [chat.error])
+
+  return chat
 }
