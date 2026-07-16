@@ -116,9 +116,8 @@ function ChatHeader() {
 
 function EmptyState({ onPrompt }: { onPrompt: (text: string) => void }) {
   const starters = [
-    'Acabei de entrar na Supernova, por onde eu começo?',
-    'Qual é o próximo passo da minha jornada?',
-    'Estou meio perdido, pode me orientar?',
+    'Acabei de entrar na comunidade, por onde começo?',
+    'Poderia me explicar como funciona por aqui?',
   ]
 
   return (
